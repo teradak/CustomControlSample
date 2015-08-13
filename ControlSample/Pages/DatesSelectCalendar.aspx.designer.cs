@@ -7,9 +7,9 @@
 // </自動生成>
 //------------------------------------------------------------------------------
 
-namespace ControlSample {
+namespace ControlSample.Pages {
     
     
-    public partial class _Default {
+    public partial class DatesSelectCalendar {
     }
 }
