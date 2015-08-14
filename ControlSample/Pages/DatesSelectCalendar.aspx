@@ -56,6 +56,20 @@
         <div style="clear:both;" />
         <textarea id="days" rows="10" cols="100"></textarea>
 
+        <div>
+            <h4>仕様</h4>
+            <ul>
+                <li>3か月表示</li>
+                <li>土は青、日祝はピンク</li>
+                <li>曜日ごとの選択</li>
+                <li>平日全て選択</li>
+                <li>土日祝全て選択</li>
+                <li>月全て選択</li>
+                <li>月全て選択</li>
+                <li>選択できない日がある</li>
+
+            </ul>
+        </div>
     </div>
 
 
@@ -136,6 +150,8 @@
                 });
 
 
+
+
                 /*
                  * 選択した日付を得る
                  */
@@ -172,27 +188,29 @@
 
                         var table_ID = settings.prefix + '' + s_yy + '' + s_mm;
 
-                        html += '<table class="calendar_button" id="' + table_ID + '">';
-                        html += '  <tr>';
-                        html += '    <th colspan="7">' + s_yy + '/' + s_mm + ' &nbsp; <a href="#" id="' + class_month_on + '">全選択</a> <a href="#" id="' + class_month_off + '">解除</a></th>';
-                        html += '  </tr>';
+                        var oneMonthCal = '';
 
-                        html += '<tr>';
-                        html += '  <th>' + settings.week[0] + '</th>';
-                        html += '  <th>' + settings.week[1] + '</th>';
-                        html += '  <th>' + settings.week[2] + '</th>';
-                        html += '  <th>' + settings.week[3] + '</th>';
-                        html += '  <th>' + settings.week[4] + '</th>';
-                        html += '  <th>' + settings.week[5] + '</th>';
-                        html += '  <th>' + settings.week[6] + '</th>';
-                        html += '</tr>';
+                        oneMonthCal += '<table class="calendar_button" id="' + table_ID + '">';
+                        oneMonthCal += '  <tr>';
+                        oneMonthCal += '    <th colspan="7">' + s_yy + '/' + s_mm + ' &nbsp; <a href="#" id="' + class_month_on + '">全選択</a> <a href="#" id="' + class_month_off + '">解除</a></th>';
+                        oneMonthCal += '  </tr>';
+
+                        oneMonthCal += '<tr>';
+                        oneMonthCal += '  <th>' + settings.week[0] + '</th>';
+                        oneMonthCal += '  <th>' + settings.week[1] + '</th>';
+                        oneMonthCal += '  <th>' + settings.week[2] + '</th>';
+                        oneMonthCal += '  <th>' + settings.week[3] + '</th>';
+                        oneMonthCal += '  <th>' + settings.week[4] + '</th>';
+                        oneMonthCal += '  <th>' + settings.week[5] + '</th>';
+                        oneMonthCal += '  <th>' + settings.week[6] + '</th>';
+                        oneMonthCal += '</tr>';
 
                         //settings.prefix   delimiter
 
                         //行数分をループ
                         var setDay = 0;
                         for (var r = 0; r < cal; r++) {
-                            html += '<tr>';
+                            oneMonthCal += '<tr>';
                             //一週間分をループ
                             for (var d = 0; d < 7; d++) {
                                 var day = '';
@@ -209,11 +227,14 @@
                                     }
                                 }
                                 var id = settings.prefix + '' + ymd;
-                                html += '  <td data-flag="off" class="' + class_td + '" id="' + id + '">' + day + '</td>';
+                                oneMonthCal += '  <td data-flag="off" class="' + class_td + '" id="' + id + '">' + day + '</td>';
                             }
-                            html += '</tr>';
+                            oneMonthCal += '</tr>';
                         }
-                        html += '</table>';
+                        oneMonthCal += '</table>';
+
+                        // ひと月分を追加
+                        html += oneMonthCal;
                     }
 
                     obj.html(html);//HTMLを挿入

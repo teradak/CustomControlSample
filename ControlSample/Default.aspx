@@ -12,8 +12,7 @@
         <div class="col-md-4">
             <h2>複数選択 カレンダー</h2>
             <p>
-                ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
-            A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
+                参考：http://studio-key.com/1248.html
             </p>
             <p>
                 <a class="btn btn-default" href="Pages/DatesSelectCalendar.aspx">sample &raquo;</a>
